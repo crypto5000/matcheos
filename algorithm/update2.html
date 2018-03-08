@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Matcheos is a new way to meet people using the EOS platform.">
+    <meta name="author" content="Matcheos">
+
+    <title>Matcheos - Development Update 2</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/portfolio-item.css" rel="stylesheet">
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="css/2-col-portfolio.css" rel="stylesheet">      
+    <link rel="icon" href="./img/favicon.ico" />	
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114902364-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-114902364-1');
+    </script>
+    
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="./index.html">Matcheos</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="intro-header">
+        <div class="container">
+            <div class="intro-message">
+            <br><br>          
+            <h2 style="padding-bottom:10px;">A New Way to Meet People<br>using the EOS platform.</h2>                    
+            <hr class="intro-divider">          
+            <h4>Development Update #2:<br>Matching</h4>          
+            </div>
+        </div>
+    </header>    
+      
+    <!-- Page Content -->
+    <section class="content-section-a" style="padding-bottom:20px" id="intro">
+        <div class="container">                    
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Recap: March 7, 2018</h3>
+                    <p>This is the second in a series of developmental updates for Matcheos. The first post (see <a href="./update1.html">here</a>) explained browsing through profiles and submitting EOS offers. This post will focus on the matching algorithm. Expect the next development update over the coming days.</p>
+                    <br>
+                    <h3 class="page-header">Current Status = BETA</h3>
+                    <p>The current matching algorithm is BETA and will likely change with added data and analysis. Other algorithmic approaches, including machine learning (ML), are being investigated to improve match quality. Remember even commercial grade algorithms like Facebook's News Feed, Google's PageRank, and Twitter's Bot Problem are constantly being refined as bad actors try to game them.</p>
+                </div>                                                
+            </div>
+        </div>      
+        <!-- /.container -->
+
+    </section>
+    
+    <!-- Page Content -->
+    <section class="content-section-a" id="profiles">
+        
+      <div class="container">        
+        <hr class="intro-divider">          
+        <h3>The Matching Screen:</h3>   
+        <!-- Item Row -->
+        <div class="row">
+            
+          <div class="col-md-8">
+              <img class="img-responsive" style='width:100%;' src="img/sample4.png" alt="Sample 4">
+          </div>
+
+          <div class="col-md-4">
+              <h4 style="padding-left:5px">Matching</h4>
+              <p style="padding-left:5px">Matches proceed through a lifecycle from New to Active to Closed. The matching algorithm generates New Matches.</p>
+              <h4 style="padding-left:5px">New Matches</h4>
+              <p style="padding-left:5px">The focus of this post is on New Matches. The algorithm takes the EOS offers and outputs matches. You don't have to accept a New Match.</p>
+              <h4 style="padding-left:5px">Active Matches</h4>
+              <p style="padding-left:5px">If you choose to accept a match, it becomes active. These matches are handled through smart contracts - where the offer is staked.</p>
+              <h4 style="padding-left:5px">Closed Matches</h4>
+              <p style="padding-left:5px">Once a match is finished and the smart contract is closed, the EOS has been released. This will be discussed in future posts.</p>
+          </div>
+
+        </div>
+      
+        <!-- /.row -->
+      </div>
+
+    </section>
+    
+    <!-- Page Content -->
+    <section class="content-section-a" style="padding-bottom:20px" id="clear">
+        <div class="container">                    
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Making it Clear: What is Happening?</h3>
+                    <p>So before proceeding to the simple math, let's just explain clearly what the algorithm does. In the prior post, users submitted a bunch of numbers. The matching algorithm takes these numbers as inputs and outputs matches. You can think of it as reaching into a jar of marbles and pulling out 2 similar ones.</p>
+                    <img class="img-responsive" style='width:50%;' src="img/jar.jpg" alt="Marbles">
+                    <br>
+                    <h3 class="page-header">Basic Definitions:</h3>
+                    <p>The general structure of the algorithm is:
+                        <code>F(bids,balance,purpose) = Matches</code>
+                    </p>                    
+                    <p>Let's define a term called Rank where:
+                        <code>Rank at t<sub>0</sub> = Bid from Person i to j for Purpose k at t<sub>0</sub> / Total Balance of Person i at t<sub>0</sub></code>
+                    </p>
+                    <p>Rank is simply the percentage of a user's "EOS Wealth" that they bid. If you have 10 EOS and bid 1 EOS to date Alice. The Rank would be 0.1. Remember that you need EOS to make a bid, so Total Balance > 0. Which also means Rank (and Max Rank) > 0.</p>
+                    <p>Let's define a term called Max Rank where:
+                        <code>Max Rank at t<sub>0</sub> = Max(Rank from Person i to j for Purpose k) over all People j and T <= 0</code>
+                    </p>
+                    <p>Max Rank is just the highest Rank that the user has ever bid for another person (over a certain data timeline).</p>
+                    <p>Let's define a term called Score where:
+                        <code>Score at t<sub>0</sub> for Person i = Rank at t<sub>0</sub> for Person i / Max Rank at t<sub>0</sub> for Person i</code>
+                    </p>
+                    <p>A Score is simply expressing the current "~bid" as a percentage of the highest ever "~bid". Scores are what we are interested in. The bids yield Rank which yield Scores.</p>
+                    <p>Let's define a Match where:
+                        <code>Match exists between Person i and Person j iff (if and only if)</code></p>
+                        <p><code>Score for i to j + Score for j to i >= Threshold K</code></p>
+                        <p><code>Bid i >= Minimum M</code></p>
+                        <p><code>Bid j >= Minimum M</code></p>
+                        <p><code>Total Balance i >= Minimum N</code></p>
+                        <p><code>Total Balance j >= Minimum N</code></p>
+                        <p><code>Number of Bids for i >= Minimum P</code></p>
+                        <p><code>Number of Bids for j >= Minimum P</code></p>                        
+                        <p><code>Score i to j > 0</code></p>
+                        <p><code>Score j to i > 0</code></p>
+                    </p>
+                    <p>There is no Match if the conditions above don't hold. So let's run through a simplified example of a normal match. First, some assumptions: K=1.3, M=0, N=0, P=0. Assume both Alice and Bob have an EOS Balance of 100 EOS that stays constant throughout bidding. Assume only the Friend purpose and Alice bids first.</p>
+                    <p>Alice bids 3 EOS for Dave, then 1 EOS for Charlie, and then 5 EOS for Bob. No one else has bid. The Ranks are 0.03 (3/100) for Dave, 0.01 (1/100) for Charlie, and 0.05 (5/100) for Bob. The Max Ranks are 0.03 for Dave, 0.03 for Charlie, and 0.05 for Bob. The Scores are 1 for Dave, 0.33 for Charlie, and 1 for Bob. Since there are no other Scores, there are no matches because 1 < 1.3 (=K).</p>
+                    <p>Now Bob bids 3 EOS for Alice and 2 EOS for Carol. The Ranks are 0.03 for Alice and 0.02 for Carol. The Max Ranks are 0.03 for Alice and 0.03 for Carol. The Scores are 1 for Alice and 0.66 for Carol.</p>
+                    <p>There is a match between Bob and Alice. The Score(Bob) + Score(Alice) = 2 > 1.3 (=K). And all the other constraints are met.</p>                    
+                </div>                                                
+            </div>
+        </div>      
+        <!-- /.container -->
+
+    </section>
+    
+    <!-- Page Content -->
+    <section class="content-section-a" style="padding-bottom:20px" id="safeguards">
+        <div class="container">                    
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Matcheos Safeguards:</h3>
+                    <p>The Matcheos process has a number of safeguards to provide a bedrock against bad actors. Given the state of the crypto world, it's certain that scammers will try to game the system.</p>
+                    <h5 class="page-header">Safeguard 1: Double-blind Opt-in</h5>
+                    <p>In order to make a match, BOTH people must independently submit an EOS offer on the other person for that specific purpose. Remember from the last post, offers are non-binding and stored off-chain. They are not transactions on the public EOS mainnet. When you make an offer to meet, that person does not know you made an offer. This means that even if someone offers 1 million EOS to meet you, you will not be matched unless you independently submit an offer to meet them, too.</p>
+                    <h5 class="page-header">Safeguard 2: Double Match Acceptance</h5>
+                    <p>If a bad actor somehow gets you to make an offer on them, you still have the option to refuse a match. In other words, both people have to accept the match. One person is not enough.</p>
+                    <h5 class="page-header">Safeguard 3: Smart Contract Stake</h5>
+                    <p>If a bad actor gets you to make an offer on them and you accept the match, that person will still have to stake EOS into the smart contract. More will be said about this later and in future posts.</p>
+                    <h5 class="page-header">Safeguard 4: Smart Contract Terms</h5>
+                    <p>If a bad actor gets you to make an offer on them and you accept the match, you will still have an opportunity in the contract to terminate amicably.</p>                    
+                    <h5 class="page-header">Safeguard 5: Arbitration</h5>
+                    <p>If you accept a match and believe the other person has breached Matcheos' Code of Conduct, you are entitled to arbitration. EOS's Constitution has remedies for bad actors (including account forfeiture and transaction reversals).</p>                    
+                </div>                                                
+            </div>
+        </div>      
+        <!-- /.container -->
+
+    </section>
+        
+    <!-- Page Content -->
+    <section class="content-section-a" style="padding-bottom:20px" id="issues">
+        <div class="container">                    
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Other Considerations:</h3>
+                    <p>Below are other "known" considerations related to the algorithm. Keep in mind that gaming a match doesn't necessarily indicate harm or a bad actor. In fact, it could be a strong signal of positive interest.</p>
+                    <h5 class="page-header">1: Nothing at Stake</h5>
+                    <p>The benefit of the smart contract is to incentivize good behavior. However, if you have only a tiny amount at stake, you may not care. This is why the algorithm has minimum M and N.</p>
+                    <h5 class="page-header">2: Burn the Ships</h5>
+                    <p>Burn the Ships is a variant of Nothing at Stake. It just means that even if you have a large stake, you're willing to burn it. This is atypical behavior. Again a higher M and N may partially help if you go high enough.</p>
+                    <h5 class="page-header">3: Cold Starts</h5>
+                    <p>At the beginning of the bidding (especially the first bid), there is very little comparison. The first bid is by definition a max. This why the algorithm has a minimum of P bids to build up a relevant history for Max Rank.</p>
+                    <h5 class="page-header">4: Fat Fingers</h5>
+                    <p>If a person makes a mistake and does a large bid, their Max Rank could become artificially high and prevent future matches. As with Cold Starts, the algorithm may have to adjust its data history with periodic clears and restarts for Max Rank.</p>                    
+                    <h5 class="page-header">5: Max Rank Flooding</h5>
+                    <p>Max Rank Flooding is when a person constantly bids the same amount over and over to get a Score of 1. The algorithm may have to penalize Scores where flooding is detected. Or the algorithm may have to cap the number of matches over a time period.</p>
+                    <h5 class="page-header">6: Stale Data</h5>
+                    <p>Stale data is similar to Fat Fingers. Your preferences may have changed since the bid was made. So the algorithm may have to do clears and restarts of data.</p>
+                    <h5 class="page-header">7: Multiple Accounts</h5>
+                    <p>Multiple accounts is where a person splits their bids over different accounts and try to layer their bids for a person to trigger a match. This is clearly against the Matcheos Code of Conduct and would be subject to arbitration if discovered.</p>
+                    <h5 class="page-header">8: Duplicate Bids</h5>
+                    <p>Duplicate bids is where you try to make multiple bids on the same person for the same purpose in a single account. The software won't allow this unless the data has been cleared.</p>
+                    <h5 class="page-header">9: Age Filters</h5>
+                    <p>Minors dating adults is obviously problematic. The algorithm will need an age filter so minors only interact with minors.</p>
+                </div>                                                
+            </div>
+        </div>      
+        <!-- /.container -->
+
+    </section>
+    
+    <!-- Page Content -->
+    <section class="content-section-a" style="padding-bottom:20px" id="more">
+        <div class="container">                    
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <h3 class="page-header">More Details:</h3>                    
+                    <p>That's it for this post. Next up will be a discussion about accepting a match. Stay tuned.</p>                
+                </div>                                                
+            </div>
+        </div>      
+        <!-- /.container -->
+
+    </section>
+        
+    <!-- Page Content -->
+    <section class="content-section-a" style="padding-bottom:10px" id="join">
+            
+    <div class="container">        
+    
+        <hr class="intro-divider">          
+        <div class="row text-center">
+        
+            <div class="col-lg-12">
+                <h3 class="page-header">Get Notified of the Beta Launch:</h3>
+            </div>
+            <div class="col-lg-12">           
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">                                        
+                            <label for="signupEmail">Enter your email:</label>
+                            <div class="col-xs-10">
+                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            </div>                                        
+                        </div>                                        
+                    </fieldset>
+                </form>
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <button type="submit" class="btn btn-primary" id="fetchButton">Join the Waiting List</button>                                        
+                        <div id="loading" style="display:none"><img src="./img/loading.gif" alt="loading" height="20" width="20">&nbsp;&nbsp;&nbsp;Sending</div>
+                        <div id="success" style="color:green"></div>
+                    </div>                            
+            </div>            
+        </div>
+
+        <!-- /.row -->            
+    </div>      
+    <!-- /.container -->
+
+    </section>
+    
+    <!-- Page Content -->
+    <section class="content-section-a" style="padding-bottom:10px" id="help">
+        
+        <div class="container">        
+
+            <hr class="intro-divider">          
+            <div class="row text-center">
+            
+                <div class="col-lg-12">
+                    <h3 class="page-header">Help Build Matcheos:</h3>
+                    <h5>Matcheos is open source software on github.<br><br>To contribute to the project, please participate in the open thread <a href="https://github.com/crypto5000/matcheos/issues">here</a>.</h5>
+                </div>                
+            </div>
+
+            <!-- /.row -->            
+        </div>      
+        <!-- /.container -->
+
+        </section>
+
+    <aside class="banner">
+        
+        <div class="container" id="donate">
+
+            <div class="row">
+                <div class="col-lg-12 my-auto">
+                </div>                    
+            </div>
+
+            <div class="row text-center">
+                    <div class="col-lg-12">
+                        <p><a href="privacy.html">Terms and Privacy Policy</a></p>
+                    </div>
+            </div>
+      
+        </div>
+        <!-- /.container -->
+
+    </aside>
+        
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Module JavaScript -->
+    
+    <!-- Page-Level Demo Scripts -->
+    <script>
+    $(document).ready(function() {                        
+
+        // redirect to https if not using it
+        if (location.protocol != 'https:') {
+            location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+        }       
+                
+        // handle beta email signup
+        $("#fetchButton").on( "click", function() {		
+
+            // get the email
+            var email = $("#email").val();                
+
+            // validate the email exists
+            if (!email) {
+                alert("Email is invalid. Please enter a value.");                                        
+                return false;
+            }
+
+            // validate the email
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,15})+$/.test(email)) {
+                // do nothing
+            } else {
+                alert("Email is invalid. Please enter a new value.");
+                return false;
+            }
+       
+            // validate the email is less than 140 characters
+            if (email.length > 100) {
+                alert("Email is too long. Please enter a shorter value.");                                        
+                return false;
+            }
+
+            // hide button, show loading        
+            $("#fetchButton").hide();
+            $("#loading").show();        
+
+            // post the email
+            $.ajax({
+                type: "POST",
+                url: 'https://zmmw01y1f1.execute-api.us-east-1.amazonaws.com/formStage',
+                contentType: 'application/json',
+                data: JSON.stringify({                    
+                    'email': email                    
+                }),
+                success: function(res){
+                    $('#success').text('Success! We will email you when the BETA is ready.');
+                    $("#loading").hide();        
+                    $("#fetchButton").show();                           
+                },
+                error: function(){
+                    $('#success').text('Sorry. Our server may be down. Try again later.');
+                    $("#loading").hide();        
+                    $("#fetchButton").show();                           
+                }
+            });
+
+            return false;
+
+        });  	                                     
+
+    });	
+
+    </script>
+	
+  </body>
+  
+</html>
