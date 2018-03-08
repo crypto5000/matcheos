@@ -60,6 +60,9 @@ The release format is also being finalized: There are several options (including
 2. Release at the occurence of some outside "in-person" event.
 
 # Upcoming Milestones (Status)
-1. Create Upcoming Milestones (Pending)
-2. Get Initial Feedback (Pending)
+1. Create Upcoming Milestones (Done)
+2. Get Initial Feedback (Done)
 3. Build Mock-ups of User Flow (Pending)
+4. Publish Development Updates to Reddit (Pending)
+5. Build Simulated Demo for Beta Users (Future)
+6. Build Beta version with EOS integration (Future)
