@@ -20,14 +20,13 @@ For a single user, the flow is as follows:
 1. Create an account within EOS.
 2. Acquire some EOS tokens.
 3. Create a profile within Matcheos.
-4. Select a purpose (dating, work, friends).
-5. Browse through other people's profiles.
-6. Submit bids on people you want to meet.
-7. Receive matches from the Matcheos system.
-8. Accept a match.
-9. Send your EOS bid into the smart contract.
-10. Meet with the match.
-11. Receive some (or all) of your EOS back.
+4. Browse through other people's profiles.
+5. Submit bids on people you want to meet.
+6. Receive matches from the Matcheos system.
+7. Accept a match.
+8. Send your EOS bid into the smart contract.
+9. Interact with the match.
+10. Receive some (or all) of your EOS back.
 
 # Different Purposes
 Matcheos can be used to match any grouping. It can be used for dating. It can be used for companies, where there is a match between the potential employee and the employer. Or it can be used for finding friends.
