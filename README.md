@@ -46,6 +46,6 @@ The communication should be problem free. That's the goal. Here is where the sma
 3. Build Mock-ups of User Flow (Done)
 4. Connect Profiles with EOS Testnet (Done)
 5. Publish Development Updates to Reddit (Pending)
-6. Publish Development Updates to Reddit (Pending)
+6. Code and Test Smart Contracts on Testnet (Pending)
 7. Launch Closed Private Beta (Future)
 8. Open Waiting List for Open Beta (Future)
