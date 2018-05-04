@@ -11,7 +11,11 @@ When you make an offer to meet someone, you are signaling a preference. Offers a
 
 # Smart Contracts
 ![alt text](https://github.com/crypto5000/matcheos/blob/master/img/accept.png "Smart Contracts")
-Assume Matcheos contains 6 people (Alice, Bob, Charles, Dave, Eve and Fran). All 6 people have profiles. Each person can browse through other people's profiles and submit a EOS bid. For example, Alice can bid 1 EOS to meet Bob and 5 EOS to meet Charles. Dave can bid 5 EOS to meet Fran. Etc. Etc.
+Two people agree to the terms of the contract upfront. Neither person has to accept a match. And either person can terminate the contract at any time (before it's finished).
+
+# Interaction
+![alt text](https://github.com/crypto5000/matcheos/blob/master/img/finish.png "Interaction")
+The two people take steps interacting in a chat format. As the interaction progresses, staked EOS is released back to each person.
 
 # Arbitration
 ![alt text](https://github.com/crypto5000/matcheos/blob/master/img/arbitration.png "Arbitration")
@@ -27,9 +31,6 @@ For a single user, the flow is as follows:
 6. Send your EOS offer into the smart contract.
 7. Interact with the match.
 8. Receive some (or all) of your EOS back.
-
-# Different Purposes
-Matcheos can be used to match any grouping. It can be used for dating. It can be used for companies, where there is a match between the potential employee and the employer. Or it can be used for finding friends.
 
 # Upcoming Milestones (Status)
 1. Create Upcoming Milestones (Done)
