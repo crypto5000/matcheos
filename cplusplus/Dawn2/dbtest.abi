@@ -1,0 +1,29 @@
+{
+  "types": [],
+  "structs": [{
+      "name": "key_value",
+      "base": "",
+      "fields": {
+        "key": "string",
+        "value": "string"
+      }
+    }
+  ],
+  "actions": [{
+      "action_name": "dbinsert",
+      "type": "key_value"
+    }
+  ],
+  "tables": [{
+      "table_name": "keyvalue",
+      "index_type": "str",
+      "key_names": [
+        "key"
+      ],
+      "key_types": [
+        "string"
+      ],
+      "type": "key_value"
+    }
+  ]
+}
