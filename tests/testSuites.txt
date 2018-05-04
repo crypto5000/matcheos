@@ -1,0 +1,69 @@
+MatchingAlgorithm:
+	+ 1st bid below minimum, expected error message
+	+ 1st bid above maximum, expected error message
+	+ 1st bid above balance, expected error message
+	+ 1st bid to a test user (same age, type1), expected outcome of success with no match
+	+ 1st bid to a test user (same age, type2), expected outcome of success with no match
+	+ 2nd bid to a test user (same age, type1), expected outcome of already bid
+	+ 2nd bid to a test user (same age, type1) with old bid date, expected outcome success with no match
+	+ cold start bid to test user (same age, type1), expected outcome of success with no match
+	+ test user makes first bid (type 1), expected outcome of success with no match because of cold start
+	+ test user makes cold start bid (type 1), expected outcome of success with match
+	+ test user makes another bid to person (type 1), expected outcome of match exists already
+	+ test user makes another bid to person (type 2), expected outcome of success with not match
+	+ test user makes cold start bid (type2) but low score, expected outcome of success with no match	
+	+ 1st bid to a test user (diff age, type1), expected outcome of success with no match
+	+ 1st bid to a test user (diff age, type2), expected outcome of success with no match
+	+ 2nd bid to a test user (diff age, type1), expected outcome of already bid
+	+ 2nd bid to a test user (diff age, type1) with old bid date, expected outcome success with no match
+	+ test user makes first bid (type 1), expected outcome of success with no match because of cold start
+	+ test user makes cold start bid (type 1), expected outcome of success with no match because of age
+
+Match
+	+ View a New Match
+	+ View an Active Match
+	+ View a Closed Match
+
+ViewMatch:
+	+ Accept a match with contract that is already created
+	+ Accept a match with new contract
+	+ Reject a match with contract that is already created
+	+ Reject a match with no contract (new)
+	+ Check ratings - during contract
+	+ Check ratings - after contract
+
+SelectContract
+	+ Accept the default contract
+	+ Accept a secondary contract that is not the default - change the input settings
+
+AcceptContract
+	+ Accept a contract that is already created
+		+ Fund new contract
+		+ Verify funding
+	+ Accept a new contract
+		+ Fund new contract
+		+ Verify funding
+	+ Reject a contract that is already created, permanently reject
+	+ Reject a contract that is already created, select new contract
+	+ Check ratings - during contract
+	+ Check ratings - after contract
+
+Contract
+	+ View a New Contract
+	+ View an Active Contract
+	+ View a Closed Contract
+
+ViewSteps
+	+ Enter first step for a contract
+	+ Enter second step for a contract
+	+ Finish contract for first user
+	+ Finish contract for a second user
+	+ Finish contract and start a new contract with same user
+	+ Finish contract and don't start a new contract with that user
+	+ Terminate a contract
+	+ Terminate and the arbitrate before 24 hours
+	+ Arbitrate a contract
+		+ Enter arbitration details
+	+ Rate a user during contract
+	+ Rate a user after contract
+		
